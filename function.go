@@ -17,6 +17,8 @@ import "fmt"
 // function yang ingin diimport ke dalam file lain harus memiliki nama function yang diawali dengan huruf kapital
 // karena function tersebut merupakan public function
 // function yang diawali dengan huruf kecil adalah private function, function tersebut hanya bisa diakses di dalam package tersebut
+// dalam golang, juga bisa untuk memberi nama untuk return value
+// jika ingin mengembalikan nilai kembalian yang sama, maka bisa menggunakan tipe data yang sama
 
 
 // contoh function tanpa parameter dan tanpa nilai kembalian
@@ -50,5 +52,50 @@ func main() {
 	sayHelloTo("Golang")
 	fmt.Println(getHello())
 	fmt.Println(getHelloTo("Golang"))
+	
+	// mengambil nilai kembalian dari function getHelloAndHi ke dalam variable
+	// firstName, secondName := getHelloAndHi()
+	// jika ingin mengambil salah satu nilai kembalian, maka bisa menggunakan _ (underscore) untuk mengabaikan nilai tersebut
+	firstName , _ := getHelloAndHi()
+	fmt.Println(firstName)
+
+	// jika ingin mengembalikan semua nilai
 	fmt.Println(getHelloAndHi())
+	SequenctialSearch(5, []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10})
+}
+
+func SequenctialSearch(angka int, slice []int) {
+	for i := 0; i < len(slice); i++ {
+		if angka == slice[i] {
+			fmt.Println("Angka ditemukan di index ke-", i)
+			break
+		} else {
+			fmt.Println("Angka tidak ditemukan")
+		}
+	}
+}
+
+
+// insertion sort adalah algoritma pengurutan sederhana yang membandingkan dua elemen pertama, kemudian membandingkan elemen ketiga dengan elemen kedua dan seterusnya
+// insertion sort membandingkan elemen satu per satu dan memindahkan elemen tersebut ke posisi yang benar
+// insertion sort cocok digunakan untuk jumlah elemen yang sedikit
+// insertion sort memiliki kompleksitas waktu O(n^2)
+// insertion sort memiliki kompleksitas ruang O(1)
+func InsertionSort(slice []int) []int {
+	for i := 1; i < len(slice); i++ {
+		j := i - 1
+		temp := slice[i]
+		for j >= 0 && slice[j] > temp {
+			slice[j+1] = slice[j]
+			j--
+		}
+		slice[j+1] = temp
+	}
+	return slice
+}
+
+// function dengan named return value
+func NamaFunction() (nama string) {
+	nama = "Ammar"
+	return nama
 }
