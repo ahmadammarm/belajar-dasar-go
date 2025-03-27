@@ -62,6 +62,8 @@ func main() {
 	// jika ingin mengembalikan semua nilai
 	fmt.Println(getHelloAndHi())
 	SequenctialSearch(5, []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10})
+
+	fmt.Println(CekPalindrom("kasur rusak"))
 }
 
 func SequenctialSearch(angka int, slice []int) {
@@ -98,4 +100,17 @@ func InsertionSort(slice []int) []int {
 func NamaFunction() (nama string) {
 	nama = "Ammar"
 	return nama
+}
+
+// palindrom adalah kata, frasa, angka, maupun susunan lainnya yang dapat dibaca dengan sama baik dari depan maupun belakang
+// contoh palindrom adalah "kasur rusak", "ibu ratna antar ubi", "ada", "malam", "radar", "malas", "tanggat", "nurses run", "ibu membeli mobil", "ibu membeli balon"
+func CekPalindrom(masukan string) bool {
+	for i := 0; i < len(masukan); i++ {
+		if masukan[0] != masukan[len(masukan) - 1] {
+			return false
+		} else if masukan[1] != masukan[len(masukan) - 2] {
+			return false
+		}
+	}
+	return true
 }

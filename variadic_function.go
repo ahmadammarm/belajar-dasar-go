@@ -11,7 +11,7 @@ import "fmt"
 
 
 func average(angka ...int) int {
-	
+
 	total := 0
 
 	for _, elemen := range angka {
