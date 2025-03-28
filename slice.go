@@ -52,5 +52,26 @@ func main() {
 
 	// cap() digunakan untuk menghitung kapasitas slice
 	fmt.Println(cap(slices))
+
+	sliceso := []int{1, 2, 3, 4}
+	sliceso2 := []int{5, 6, 7, 8}
+
+	newSlice := make([]int, 8)
+
+	copy(newSlice, sliceso) // copy slice ke newSlice
+	copy(newSlice[4:], sliceso2) // copy slice2 ke newSlice mulai dari index 4
+
+
+	// untuk menghapus elemen dalam slice, kita bisa menggunakan fungsi append dan slicing
+	// misalkan kita ingin menghapus elemen ke-2 dari slice
+	// kita bisa menggunakan fungsi append dan slicing seperti berikut
+	// slice = append(slice[:index], slice[index+1:]...)
+	var inputan int
+	fmt.Print("Masukan: ")
+	fmt.Scan(&inputan)
+
+	lang := []string{"Rust", "Java", "JavaScript", "Golang", "Haskell", "C#"}
+	lang = append(lang[:inputan], lang[inputan+1:]...)
+	fmt.Println(lang)
 	
 }
