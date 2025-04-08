@@ -85,7 +85,7 @@ func SequenctialSearch(angka int, slice []int) {
 // insertion sort memiliki kompleksitas ruang O(1)
 func InsertionSort(slice []int) []int {
 	for i := 1; i < len(slice); i++ {
-		j := i - 1
+		j := i - 1 
 		temp := slice[i]
 		for j >= 0 && slice[j] > temp {
 			slice[j+1] = slice[j]
